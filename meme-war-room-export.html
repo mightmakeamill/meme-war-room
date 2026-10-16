@@ -8,6 +8,68 @@
 @media(max-width:1050px){.nav{gap:12px}.brand{min-width:150px}.coin-cards{grid-template-columns:repeat(3,1fr)}.grid-main{grid-template-columns:1fr}.search{display:none}}
 @media(max-width:720px){.topbar{height:62px;padding:0 15px;gap:10px}.brand{min-width:0;font-size:12px}.brandmark{width:30px;height:30px}.nav{display:none}.mobile-menu{display:block;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;padding:8px}.top-actions{gap:6px}.top-actions .secondary{display:none}.wallet{padding:9px 10px}.main{padding:18px 14px 40px}.hero{min-height:350px;padding:25px 20px}.hero h1{font-size:46px;letter-spacing:-2.4px}.hero p{font-size:15px}.stat-grid{grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:26px}.stat{padding:13px}.stat-value{font-size:23px}.coin-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.coin-card{padding:12px}.section-head h2{font-size:20px}.page-title{align-items:start;flex-direction:column}.season{width:100%}.launch-layout{grid-template-columns:1fr}.profile-head{flex-wrap:wrap;padding:16px}.profile-info h2{font-size:22px}.profile-stats{grid-template-columns:repeat(2,1fr)}.two-fields{grid-template-columns:1fr}.footer{flex-direction:column}.hide-mobile{display:none}.table-wrap{margin:0 -5px}.war-table th,.war-table td{padding:12px 10px}.mobile-only{display:block}.form-panel{padding:17px}}
 </style>
+<style>
+/* Mobile layout refinements */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+button,input,select,textarea{max-width:100%}
+@media(max-width:720px){
+  .topbar{position:sticky;gap:8px}
+  .brand{gap:7px;flex:1;min-width:0;font-size:11px;letter-spacing:-.3px}
+  .brand small{font-size:7px;letter-spacing:1px;white-space:nowrap}
+  .top-actions{margin-left:0;flex-shrink:0}
+  .wallet{font-size:10px;padding:9px 8px;max-width:112px;overflow:hidden;text-overflow:ellipsis}
+  .mobile-menu{flex-shrink:0;padding:8px 10px}
+  .nav{z-index:20;box-shadow:var(--shadow);max-height:calc(100vh - 78px);overflow-y:auto}
+  .nav button{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line)}
+  .hero{min-height:0;padding:28px 18px;border-radius:16px}
+  .hero:after{font-size:230px;right:-35px;top:-28px}
+  .hero h1{font-size:clamp(34px,9.5vw,46px);letter-spacing:-1.8px;overflow-wrap:anywhere}
+  .hero p{font-size:14px;max-width:100%}
+  .button-row{gap:8px}
+  .button-row>button{flex:1 1 auto}
+  .proofs{gap:10px}
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{min-width:0;padding:12px}
+  .stat-value{font-size:clamp(18px,5.5vw,23px);overflow-wrap:anywhere}
+  .coin-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .coin-top{gap:7px;min-width:0}
+  .coin-top>div:nth-child(2){min-width:0;overflow-wrap:anywhere}
+  .coin-name{overflow-wrap:anywhere}
+  .coin-score strong{font-size:21px}
+  .section-head{align-items:flex-start;flex-wrap:wrap}
+  .section-head>.ghost{width:100%}
+  .panel-head,.panel-body{padding:14px}
+  .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .war-table{min-width:650px}
+  .filters{gap:7px;padding:10px}
+  .filter{padding:9px 10px}
+  .filter-search{flex-basis:100%;min-width:0}
+  #sortSelect{flex:1;min-width:0}
+  .launch-layout{grid-template-columns:minmax(0,1fr)}
+  .form-panel{min-width:0;padding:14px}
+  .steps{gap:4px}
+  .step{font-size:9px;padding:9px 3px}
+  .upload{padding:18px 12px;overflow-wrap:anywhere}
+  .profile-head{gap:12px;min-width:0}
+  .profile-info{min-width:calc(100% - 100px)}
+  .profile-head>.primary,.profile-head>.secondary{width:100%}
+  .profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tabs{gap:14px;overflow-x:auto;white-space:nowrap}
+  #setupFab{right:12px;bottom:12px;padding:11px 13px}
+  #setupModal{padding:16px;max-height:calc(100dvh - 24px)}
+  #setupModal .two-fields{grid-template-columns:minmax(0,1fr)}
+  #setupModal .button-row{display:grid;grid-template-columns:1fr}
+  .footer{overflow-wrap:anywhere}
+}
+@media(max-width:380px){
+  .brand small{letter-spacing:.4px;font-size:6px}
+  .brandmark{width:27px;height:27px;flex-shrink:0}
+  .wallet{max-width:92px;font-size:9px}
+  .hero h1{font-size:34px;letter-spacing:-1.5px}
+  .coin-cards{grid-template-columns:minmax(0,1fr)}
+  .stat-grid,.profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
 </head>
 <body><div class="app" id="app">
 <header class="topbar"><a class="brand" href="#home" data-page="home"><span class="brandmark">W</span><span>MEME<br>WAR ROOM<small>SOLANA • COMMUNITY LAUNCHPAD</small></span></a><nav class="nav" id="nav"><button class="active" data-page="home">Overview</button><button data-page="warboard">Warboard</button><button data-page="launch">Launch</button><button data-page="campaigns">Campaigns</button><button data-page="creators">Creators</button></nav><div class="top-actions"><button class="search" data-page="warboard">⌕ &nbsp; Search coins, wallets, creators...</button><button class="secondary" id="themeBtn" title="Toggle theme">◐</button><button class="primary wallet" id="walletBtn">Connect Wallet</button><button class="mobile-menu" id="menuBtn">☰</button></div></header>
@@ -70,19 +132,15 @@ $('#openPumpCreate').addEventListener('click',()=>{window.open('https://pump.fun
 (function wirePumpLaunch(){
   const stepOne=$('#formStep1');
   if(!stepOne)return;
-  const metadataField=document.createElement('div');
-  metadataField.className='field';
-  metadataField.innerHTML='<label for="tokenMetadataUri">Public metadata JSON URL *</label><input id="tokenMetadataUri" type="url" placeholder="https://…/metadata.json" required><div class="hint">Host a JSON file containing name, symbol, description, and image URL. This standalone site does not upload artwork for you.</div>';
-  $('#tokenDesc').closest('.field').insertAdjacentElement('afterend',metadataField);
   const notice=stepOne.querySelector('.notice');
   notice.textContent='Live Pump.fun creation uses mainnet and real SOL for rent and network fees. Check the metadata URL, token details, and wallet prompt carefully. A confirmed launch is irreversible.';
   const handoff=$('#providerHandoff');if(handoff)handoff.remove();
   const submit=$('#launchForm');
   submit.addEventListener('submit',async e=>{
     e.preventDefault();
-    const name=$('#tokenName').value.trim();const symbol=$('#tokenTicker').value.trim().toUpperCase();const uri=$('#tokenMetadataUri').value.trim();
-    if(!name||!symbol||!uri){toast('Enter token name, ticker, and public metadata URL.');showStep(1);return}
-    try{const parsed=new URL(uri);if(!/^https?:$/.test(parsed.protocol))throw new Error('Use a public HTTPS metadata URL.')}catch(_){toast('Enter a valid public metadata URL.');return}
+    e.stopImmediatePropagation();
+    const name=$('#tokenName').value.trim();const symbol=$('#tokenTicker').value.trim().toUpperCase();const uri='';
+    if(!name||!symbol){toast('Enter token name and ticker.');showStep(1);return}
     const provider=window.phantom?.solana||window.solana;
     if(!provider||typeof provider.signTransaction!=='function'){toast('Install and unlock Phantom before launching.');return}
     if(!connectedWallet){toast('Connect Phantom first.');return}
@@ -102,10 +160,9 @@ $('#openPumpCreate').addEventListener('click',()=>{window.open('https://pump.fun
       const result=document.createElement('div');result.className='notice';result.innerHTML='<strong style="display:block;color:var(--text);margin-bottom:6px">Launch confirmed on Solana</strong><div style="overflow-wrap:anywhere">Mint: '+mintAddress+'</div><div style="overflow-wrap:anywhere;margin-top:5px">Signature: '+signature+'</div><div style="margin-top:10px"><a target="_blank" rel="noopener noreferrer" href="https://pump.fun/coin/'+encodeURIComponent(mintAddress)+'">View token on Pump.fun ↗</a> · <a target="_blank" rel="noopener noreferrer" href="https://solscan.io/tx/'+encodeURIComponent(signature)+'">View transaction ↗</a></div>';
       $('#formStep3').prepend(result);toast('Token creation transaction confirmed.');
     }catch(err){console.error('Pump.fun launch error',err);const msg=err?.code===4001?'Transaction rejected in Phantom.':(err?.message||'Unknown launch error');cfgStatus('Launch did not complete: '+msg+'\nIf the wallet prompt was approved but the RPC timed out, check the transaction signature in Solscan before retrying.');toast('Launch failed: '+msg.slice(0,110));}
-    finally{if(btn){btn.disabled=false;btn.textContent='Create token on Pump.fun'}}
+    finally{if(btn){btn.disabled=false;btn.textContent='Launch token on Solana'}}
   },true);
-  const oldSubmit=$('#formStep3 button[type="submit"]');if(oldSubmit)oldSubmit.textContent='Create token on Pump.fun';
+  const oldSubmit=$('#formStep3 button[type="submit"]');if(oldSubmit)oldSubmit.textContent='Launch token on Solana';
 })();
 renderHome();renderRank();renderCampaign();renderCreators();
 </script></body></html>
-<!-- Automatic deployment test -->
